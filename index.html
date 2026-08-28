@@ -1,335 +1,55 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automation + Operations Portfolio</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
-        rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        // A warm, elegant palette
-                        primary: '#1b4d3e', // Deep Forest Green
-                        secondary: '#eecfa1', // Muted Gold/Sand (for subtle highlights)
-                        background: '#fafaf9', // Stone-50 (Warm White)
-                        surface: '#ffffff',
-                        text: '#1c1917', // Stone-900
-                        subtext: '#57534e', // Stone-600
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Custom adjustments for smooth typography */
-        body {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Joshua Chung — AI engineer building production agents, applied AI products, and workflow automation.">
+  <title>Joshua Chung — AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#151617; --muted:#646767; --line:#dedfda; --paper:#f8f8f5; --lime:#c8f169; --white:#fff; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:400 16px/1.55 Manrope,sans-serif; }
+    a { color:inherit; text-decoration:none; } .wrap { width:min(1120px,calc(100% - 40px)); margin:auto; }
+    .mono,.eyebrow,.tag,.nav { font-family:"DM Mono",monospace; font-size:.74rem; letter-spacing:.04em; }
+    .nav { display:flex; justify-content:space-between; align-items:center; min-height:76px; border-bottom:1px solid var(--line); }
+    .brand { font-weight:500; letter-spacing:-.04em; font-size:.9rem; } .nav-links { display:flex; gap:22px; color:var(--muted); } .nav a:hover { color:var(--ink); }
+    .hero { padding:112px 0 88px; border-bottom:1px solid var(--line); } .eyebrow { color:var(--muted); text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; } h1 { max-width:900px; margin:20px 0 28px; font-size:clamp(3rem,8vw,6.7rem); letter-spacing:-.075em; line-height:.98; font-weight:600; }
+    .accent { color:#466b05; } .intro { max-width:620px; font-size:1.2rem; color:var(--muted); } .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:36px; }
+    .button { display:inline-flex; align-items:center; gap:10px; padding:13px 17px; border:1px solid var(--ink); font-weight:600; font-size:.9rem; } .button.primary { background:var(--ink); color:var(--white); } .button.primary:hover { background:var(--lime); color:var(--ink); } .button:hover { background:var(--white); }
+    section { padding:88px 0; border-bottom:1px solid var(--line); } .section-head { display:grid; grid-template-columns:1fr 2fr; gap:30px; margin-bottom:34px; } h2 { margin:0; font-size:clamp(1.8rem,4vw,2.9rem); letter-spacing:-.06em; line-height:1.05; } .section-head p { max-width:560px; color:var(--muted); margin:4px 0 0; }
+    .projects { border-top:1px solid var(--line); } .project { display:grid; grid-template-columns:1fr 2fr; gap:30px; padding:30px 0; border-bottom:1px solid var(--line); } .project:last-child { border:0; padding-bottom:0; } .project-meta { display:flex; flex-direction:column; align-items:flex-start; gap:12px; } .tag { border:1px solid var(--line); padding:5px 8px; color:var(--muted); }
+    h3 { margin:0 0 14px; font-size:1.55rem; letter-spacing:-.045em; line-height:1.2; } .project p { max-width:660px; color:var(--muted); } .outcome { display:inline-block; margin-top:4px; padding:8px 10px; background:var(--lime); font-size:.82rem; font-weight:700; } .project a { border-bottom:1px solid var(--ink); color:var(--ink); font-weight:600; }
+    .about { display:grid; grid-template-columns:1fr 2fr; gap:30px; } .about-copy { max-width:670px; color:var(--muted); font-size:1.08rem; } .skills { display:flex; flex-wrap:wrap; gap:9px; align-content:start; } .skills span { padding:8px 10px; border:1px solid var(--line); background:var(--white); font:500 .78rem "DM Mono",monospace; }
+    .contact { padding:104px 0; } .contact h2 { max-width:680px; font-size:clamp(2.5rem,6vw,4.8rem); } .contact p { color:var(--muted); margin:20px 0 28px; } footer { padding:28px 0; color:var(--muted); font:400 .75rem "DM Mono",monospace; }
+    @media (max-width:650px) { .wrap { width:min(100% - 32px,1120px); } .nav-links { display:none; } .hero { padding:76px 0 64px; } section { padding:62px 0; } .section-head,.project,.about { grid-template-columns:1fr; gap:16px; } .section-head { margin-bottom:26px; } .project { padding:26px 0; } }
+  </style>
 </head>
-
-<body class="bg-background text-text font-sans leading-relaxed selection:bg-primary selection:text-white">
-
-    <nav class="fixed w-full top-0 z-50 bg-background/90 backdrop-blur-md border-b border-stone-200 py-4">
-        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="font-serif text-2xl font-semibold text-primary tracking-tight">
-                Joshua Chung
-            </a>
-            <div class="space-x-8 hidden md:flex text-sm font-medium tracking-wide text-subtext">
-                <a href="#about" class="hover:text-primary transition-colors duration-300">About</a>
-                <a href="#projects" class="hover:text-primary transition-colors duration-300">Case Studies</a>
-                <a href="#skills" class="hover:text-primary transition-colors duration-300">Capabilities</a>
-                <a href="#contact" class="hover:text-primary transition-colors duration-300">Contact</a>
-            </div>
-            <div class="md:hidden text-subtext">Menu</div>
+<body>
+  <div class="wrap">
+    <nav class="nav" aria-label="Main navigation"><a class="brand" href="#top">JOSHUA CHUNG</a><div class="nav-links"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Contact</a></div></nav>
+    <main id="top">
+      <header class="hero">
+        <p class="eyebrow">AI engineer · Head of Agentic Operations</p>
+        <h1>I build <span class="accent">useful AI systems</span> that work in the real world.</h1>
+        <p class="intro">From production agents embedded in team workflows to AI products people use, I turn ambiguous operational problems into reliable software.</p>
+        <div class="actions"><a class="button primary" href="#work">See selected work <span aria-hidden="true">↓</span></a><a class="button" href="mailto:joshua.chung6705@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
+      </header>
+      <section id="work">
+        <div class="section-head"><p class="eyebrow">01 / Selected work</p><div><h2>Applied AI, agents, and automation.</h2><p>Projects that moved beyond prototypes: designed around existing systems, observable in operation, and accountable to a real outcome.</p></div></div>
+        <div class="projects">
+          <article class="project"><div class="project-meta"><span class="tag">AUTOMATION PLATFORM</span><span class="mono">SJ DESIGN STUDIO × SAMSUNG</span></div><div><h3>SJ Design Automation Hub</h3><p>Built a local web application that turns a fragmented Samsung publishing process—spanning Excel, Jira, AEM, and country sites—into one guided workflow using the user’s existing SSO session. It processes pending locales from a workbook, finds the matching Jira ticket by locale and URL slug, advances required workflow stages, publishes pages, verifies the public URL, and writes the confirmed result back to the workbook.</p><p>Separate automations audit localized FAQ pages against a baseline while keeping editorial approval human-led, and copy approved master AEM components to child sites with duplicate protection and targeted retries. One dashboard manages sign-in, workbook selection, per-country progress, live status, errors, and raw logs.</p><span class="outcome">≈80% less workflow time · dozens of hours saved monthly</span></div></article>
+          <article class="project"><div class="project-meta"><span class="tag">AI PRODUCT</span><span class="mono">LECTERN</span></div><div><h3>Lectern — AI Lecture Notes</h3><p>Designed and launched a production AI note-taking application that transforms recorded lectures into structured, usable notes. Built the full product experience around audio ingestion, transcription, note generation, application logic, user workflows, and deployment—so students can focus on the lecture instead of transcription-by-hand.</p><a href="https://getlectern.app" target="_blank" rel="noopener noreferrer">Visit getlectern.app ↗</a></div></article>
+          <article class="project"><div class="project-meta"><span class="tag">AGENT ENGINEERING</span><span class="mono">DOBOTAI</span></div><div><h3>Production Agents & Developer Education</h3><p>As Head of Agentic Operations, built custom client agents and a hands-on curriculum for developers learning ReAct-style agents from first principles. One project-management agent operated across Slack and Airtable for a content company—communicating with teammates, updating production status, and coordinating videos through the workflow.</p><span class="outcome">Agents designed for the systems teams already use</span></div></article>
         </div>
-    </nav>
-
-    <header class="min-h-[85vh] flex flex-col justify-center px-6 pt-20 max-w-6xl mx-auto fade-in-up">
-        <p class="text-primary font-medium tracking-widest uppercase text-xs mb-4">Operations & Intelligence</p>
-        <h1 class="font-serif text-5xl md:text-7xl leading-[1.1] text-primary mb-8 max-w-4xl">
-            Bridging the gap between <br>
-            <span class="italic text-stone-500">business strategy</span> and <br>
-            <span class="italic text-stone-500">automated execution.</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-subtext max-w-2xl font-light mb-10">
-            I am an AI Automation Specialist. I build systems that eliminate manual inefficiencies and scale operational
-            workflows.
-        </p>
-        <div>
-            <a href="#projects"
-                class="inline-block border border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white transition-all duration-300 text-sm tracking-wider uppercase">
-                View Case Studies
-            </a>
-        </div>
-    </header>
-
-    <section id="about" class="py-24 md:py-32 border-t border-stone-200">
-        <div class="max-w-3xl mx-auto px-6">
-            <h2 class="font-serif text-4xl text-primary mb-8">The Operator's Mindset</h2>
-            <div class="space-y-6 text-lg text-subtext">
-                <p>
-                    Modern businesses have a wealth of data, but have a hard time extracting insights. My role is
-                    hybrid: I speak both the languages of the P&L statement and of software solutions.
-                </p>
-                <p>
-                    While a software engineer focuses on code quality, I focus on outcome quality. I diagnose
-                    operational bottlenecks and deploy AI-driven architectures to solve them permanently.
-                </p>
-                <p>
-                    From connecting fragmented CRMs to building autonomous agents that handle customer support, my work
-                    is designed to give you back your most valuable, non-renewable asset: time.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 bg-stone-100">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="mb-16">
-                <h2 class="font-serif text-4xl text-primary">Selected Case Studies</h2>
-                <p class="text-subtext mt-2">Problems, solutions, and outcomes</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-
-                <article
-                    class="bg-white p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
-                    <div class="flex justify-between items-center gap-4 mb-6">
-                        <h3 class="font-serif text-2xl text-primary leading-tight">Automated Project Management at LG
-                        </h3>
-                        <span
-                            class="shrink-0 inline-flex items-center justify-center bg-stone-100 text-stone-600 text-xs font-medium px-3 py-1.5 rounded-full uppercase tracking-wide leading-none">Operations</span>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">The Problem</h4>
-                            <p class="text-subtext text-sm">
-                                LG's project managemers were overwhelmed with the volume of projects, as well as the
-                                amount of teams they had to coordinate with. They spent most of their time running
-                                around the office trying to get scraps of information from teams.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">The Solution</h4>
-                            <p class="text-subtext text-sm">
-                                Using n8n and other integrations, built a representative for the 3D team with access to
-                                all of that team's databases and informationrunning on a local LLM model to coordinate
-                                directly with the project managers. In the future, all teams will have their own
-                                representative.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-stone-100">
-                            <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">The Outcome</h4>
-                            <p class="text-primary font-medium">
-                                Reduced coordination costs by 80%. Error rates from communication dropped to near zero.
-                                Saved company ~$10k/year in labor hours.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article
-                    class="bg-white p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
-                    <div class="flex justify-between items-center gap-4 mb-6">
-                        <h3 class="font-serif text-2xl text-primary leading-tight">Samsung FAQ Agent Prototype</h3>
-                        <span
-                            class="shrink-0 inline-flex items-center justify-center bg-stone-100 text-stone-600 text-xs font-medium px-3 py-1.5 rounded-full uppercase tracking-wide leading-none">Product
-                            R&D</span>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">The Problem</h4>
-                            <p class="text-subtext text-sm">
-                                Samsung’s FAQ system depended on hundreds of manually created accordions, poor search,
-                                and a confusing
-                                layout. Support teams spent time maintaining pages instead of helping users.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">The Solution</h4>
-                            <p class="text-subtext text-sm">
-                                Built a centralized FAQ agent using a RAG architecture. The agent pulls from a
-                                vectorized knowledge base,
-                                understands user queries, and can access device info tied to a customer profile.
-                                Prototype built with
-                                JavaScript, HTML, and Qdrant.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-stone-100">
-                            <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">The Outcome</h4>
-                            <p class="text-primary font-medium">
-                                Faster FAQ search, cleaner UX, and fewer support tickets. Manual FAQ entry drops sharply
-                                since updates
-                                flow into one system instead of dozens of pages.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-                <article
-                    class="bg-white p-8 md:p-10 rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border border-stone-100">
-                    <div class="flex justify-between items-center gap-4 mb-6">
-                        <h3 class="font-serif text-2xl text-primary leading-tight">Backend Automation for Cleaning
-                            Operations</h3>
-                        <span
-                            class="shrink-0 inline-flex items-center justify-center bg-stone-100 text-stone-600 text-xs font-medium px-3 py-1.5 rounded-full uppercase tracking-wide leading-none">Workflow
-                            Automation</span>
-                    </div>
-
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">The Problem</h4>
-                            <p class="text-subtext text-sm">
-                                Managers handled data entry, photo uploads, and report creation by hand. Cleaners used
-                                clunky tools that
-                                created errors and slowed down the end-of-day workflow.
-                            </p>
-                        </div>
-                        <div>
-                            <h4 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-1">The Solution</h4>
-                            <p class="text-subtext text-sm">
-                                Built a new backend system with automated data entry, automatic photo uploads to the
-                                database, and
-                                auto-generated client reports after each job. Also designed a clean interface for
-                                cleaners. Stack uses
-                                JavaScript, Vercel, and a modern backend.
-                            </p>
-                        </div>
-                        <div class="pt-4 border-t border-stone-100">
-                            <h4 class="text-xs font-bold text-primary uppercase tracking-wider mb-1">The Outcome</h4>
-                            <p class="text-primary font-medium">
-                                Projected to save each manager at least an hour a day. Cleaner UX improves, reports send
-                                themselves, and
-                                errors from manual entry fade out.
-                            </p>
-                        </div>
-                    </div>
-                </article>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="py-24 border-b border-stone-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
-                <div class="md:col-span-4">
-                    <h2 class="font-serif text-3xl text-primary mb-4">Technical &<br>Operational Toolkit</h2>
-                    <p class="text-subtext">
-                        My stack is chosen for reliability and speed. I use code where necessary and low-code where
-                        efficient.
-                    </p>
-                </div>
-
-                <div class="md:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Engineering</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">Python</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">SQL
-                                (Postgres)</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">Rest APIs</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">Javascript /
-                                Node</span>
-                            <span
-                                class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">Puppeteer/Selenium</span>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Automation & AI</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">n8n / Make</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">OpenAI / Anthropic
-                                APIs</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">LangChain</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">Zapier</span>
-                            <span class="px-4 py-2 bg-stone-100 text-stone-700 rounded-full text-sm">RAG
-                                Pipelines</span>
-                        </div>
-                    </div>
-
-                    <div class="md:col-span-2 mt-4">
-                        <h3 class="text-xs font-bold text-stone-400 uppercase tracking-wider mb-4">Business Ops</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span
-                                class="px-4 py-2 bg-white border border-stone-200 text-stone-700 rounded-full text-sm">Process
-                                Mapping</span>
-                            <span
-                                class="px-4 py-2 bg-white border border-stone-200 text-stone-700 rounded-full text-sm">HubSpot
-                                / Salesforce</span>
-                            <span
-                                class="px-4 py-2 bg-white border border-stone-200 text-stone-700 rounded-full text-sm">Data
-                                Visualization</span>
-                            <span
-                                class="px-4 py-2 bg-white border border-stone-200 text-stone-700 rounded-full text-sm">Stripe
-                                / Payment Ops</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="py-32 text-center px-6">
-        <div class="max-w-2xl mx-auto">
-            <h2 class="font-serif text-4xl md:text-5xl text-primary mb-6">Ready to optimize?</h2>
-            <p class="text-lg text-subtext mb-10">
-                I am currently open to consulting projects and full-time operational roles. Let's discuss where your
-                business is losing time.
-            </p>
-            <a href="mailto:joshua.chung6705@gmail.com"
-                class="inline-block bg-primary text-white px-10 py-4 rounded-full text-lg hover:bg-[#143d30] transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
-                Get in Touch
-            </a>
-        </div>
-    </section>
-
-    <footer class="py-10 text-center border-t border-stone-200 bg-stone-50">
-        <div
-            class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-stone-500 text-sm">
-            <p>&copy; 2025 Joshua Chung. All rights reserved.</p>
-            <div class="space-x-6 mt-4 md:mt-0">
-                <!-- <a href="#" class="hover:text-primary transition-colors">LinkedIn</a>
-                <a href="#" class="hover:text-primary transition-colors">GitHub</a>
-                <a href="#" class="hover:text-primary transition-colors">Twitter</a> -->
-            </div>
-        </div>
-    </footer>
-
+      </section>
+      <section id="about" class="about"><div><p class="eyebrow">02 / Approach</p><h2>Built for adoption, not demos.</h2></div><div><p class="about-copy">I like the work at the boundary between AI capability and operational reality: understanding the job people are already doing, connecting the systems that hold the context, and building the smallest reliable tool that makes the work better. My focus is agentic workflows, automation, and AI product engineering.</p><div class="skills" aria-label="Capabilities"><span>Python</span><span>JavaScript / Node</span><span>LLM APIs</span><span>Agent workflows</span><span>Tool use</span><span>RAG</span><span>Browser automation</span><span>APIs & integrations</span><span>Slack</span><span>Airtable</span><span>Jira</span><span>AEM</span><span>Production deployment</span></div></div></section>
+      <section id="contact" class="contact"><p class="eyebrow">03 / Contact</p><h2>Looking for an AI engineer who ships?</h2><p>I'm interested in roles where applied AI has a clear job to do.</p><a class="button primary" href="mailto:joshua.chung6705@gmail.com">joshua.chung6705@gmail.com <span aria-hidden="true">↗</span></a></section>
+    </main>
+    <footer>© 2026 Joshua Chung</footer>
+  </div>
 </body>
-
 </html>
